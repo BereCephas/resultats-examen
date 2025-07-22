@@ -1,0 +1,128 @@
+<!-- templates/error.html -->
+<div class="error-card">
+    <div class="error-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <h2>Aucun résultat trouvé</h2>
+    <p>Désolé, aucun étudiant n'a été trouvé avec les informations fournies.</p>
+    
+    <div class="possible-reasons">
+        <h3>Causes possibles :</h3>
+        <ul>
+            <li>Le numéro PV est incorrect</li>
+            <li>Les résultats ne sont pas encore disponibles</li>
+            <li>Une erreur s'est produite lors de la recherche</li>
+        </ul>
+    </div>
+    
+    <div class="actions">
+        <a href="/" class="btn">
+            <i class="fas fa-arrow-left"></i> Nouvelle recherche
+        </a>
+    </div>
+</div>
+
+<style>
+    .error-card {
+        background: #fff8f8;
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        border: 1px solid #ffdddd;
+        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.1);
+    }
+    
+    .error-icon {
+        font-size: 4rem;
+        color: #e74c3c;
+        margin-bottom: 20px;
+    }
+    
+    .error-card h2 {
+        color: #e74c3c;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+    
+    .error-card p {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .possible-reasons {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 25px 0;
+        text-align: left;
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .possible-reasons h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .possible-reasons ul {
+        padding-left: 25px;
+    }
+    
+    .possible-reasons li {
+        margin-bottom: 10px;
+        color: #7f8c8d;
+    }
+    
+    .actions {
+        margin-top: 20px;
+    }
+    
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 30px;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    }
+    
+    .btn:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+    }
+    
+    @media (max-width: 600px) {
+        .error-card {
+            padding: 20px;
+        }
+        
+        .error-icon {
+            font-size: 3rem;
+        }
+        
+        .error-card h2 {
+            font-size: 1.5rem;
+        }
+        
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

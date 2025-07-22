@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Recherche de Résultats{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Rechercher vos résultats</h3>
+            </div>
+            <div class="card-body">
+                <form action="/search-result" method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="exam" class="form-label">Type d'examen</label>
+                            <select class="form-select" id="exam" name="exam" required>
+                                <option value="">Choisissez un examen</option>
+                                {% for exam in exams %}
+                                <option value="{{ exam }}">{{ exam }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="tour" class="form-label">Tour</label>
+                            <select class="form-select" id="tour" name="tour" required>
+                                <option value="">Choisissez le tour</option>
+                                {% for tour in tours %}
+                                <option value="{{ tour }}">{{ tour }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="pv_number" class="form-label">Numéro PV</label>
+                            <input type="text" class="form-control" id="pv_number" name="pv_number" required
+                                placeholder="Entrez votre numéro PV">
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Rechercher</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        {% if results %}
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">Résultats</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Statut</th>
+                                <th>Mention</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-{{ 'success' if result.passed else 'danger' }}">
+                                        {{ result.status }}
+                                    </span>
+                                </td>
+                                <td>{{ result.mention or '-' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
